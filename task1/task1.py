@@ -2,20 +2,20 @@ import sys
 
 array = []
 range_sum = 0
-with open(sys.argv[1], "r") as file:  # Ñ÷èòûâàåì äàííûå èç ôàéëà(ïåğåäàåì ñ ïîìîùüş àğãóìåíòà â êîìàíäíîé ñòğîêå)
+with open(sys.argv[1], "r") as file:  
     for line in file.readlines():
-        array.append(int(line.strip()))  # Ïåğåäàåì äàííûå èç ôàéëà â ñïèñîê array äëÿ äàëüíåéøåé ğàáîòû
-array.sort()  # îòñîğòèğîâàííûé ìàññèâ
+        array.append(int(line.strip())) 
+array.sort() 
 
-print(f"Îòñîğòèğîâàííûé ìàññèâ:\n{array}")
-# ğàñ÷åò ñğåäíåãî
+print(f"ĞÑ‚ÑĞ¾Ñ€Ñ‚Ğ¸Ñ€Ğ¾Ğ²Ğ°Ğ½Ğ½Ñ‹Ğ¹ Ğ¼Ğ°ÑÑĞ¸Ğ²:\n{array}")
+
 average = round(sum(array) / len(array), 2)
-print("Ñğåäíåå çíà÷åíèå ìàññèâà:", average)
-# Ğàñ÷åò ğàíãà 90-ãî ïåğöåíòèëÿ.
+print("Ğ¡Ñ€ĞµĞ´Ğ½ĞµĞµ Ğ·Ğ½Ğ°Ñ‡ĞµĞ½Ğ¸Ğµ Ğ¼Ğ°ÑÑĞ¸Ğ²Ğ°:", average)
+
 percentil_range = round(90 / 100 * len(array))
-print("90-ûé ïåğöåíòèëü: ", array[percentil_range - 1])
-# Ğàñ÷åò ñóììû
+print("90-Ñ‹Ğ¹ Ğ¿ĞµÑ€Ñ‚Ğ¸Ñ†ĞµĞ½Ñ‚Ğ¸Ğ»ÑŒ: ", array[percentil_range - 1])
+
 for i in array:
     if (i > average and i <= array[percentil_range - 1]) or (i > array[percentil_range - 1] and i <= average):
         range_sum += i
-print("Ñóììà ÷èñåë ìåæäó ñğåäíèì è 90-ûì ïåğöåíòèëåì:", range_sum)
+print("Ğ¡ÑƒĞ¼Ğ¼Ğ° Ñ‡Ğ¸ÑĞµĞ» Ğ¼ĞµĞ¶Ğ´Ñƒ ÑÑ€ĞµĞ´Ğ½Ğ¸Ğ¼ Ğ¸ 90-Ñ‹Ğ¼ Ğ¿ĞµÑ€Ñ†ĞµĞ½Ñ‚Ğ¸Ğ»ĞµĞ¼:", range_sum)
